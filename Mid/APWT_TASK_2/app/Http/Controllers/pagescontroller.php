@@ -27,8 +27,8 @@ class pagescontroller extends Controller
         ];
 
           $this->validate($request,$rules,$messages);
-           $output ="<h1>Submited</h1>";
-            return $output;
+        //    $output ="<h1>Submited</h1>";
+        //     return $output;
      
     }
 
