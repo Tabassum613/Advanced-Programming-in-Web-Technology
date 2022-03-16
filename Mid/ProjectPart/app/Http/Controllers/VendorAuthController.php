@@ -88,21 +88,9 @@ class VendorAuthController extends Controller
 
 
     public function Dashboard(){
-    $data = array();
-    if(Session::has('loginId')){
-      $data = VendorAuth::where('id', '=', Session::get('loginId'))->first();
+    return "welcome";
 
-    }
-      return view('dashboard', compact('data'));
-    }
-  
-    
-
-    public function Logout(){
-      if(Session::has('loginId')){
-        Session::pull('loginId');
-        return redirect('login');
-      }
+  }
+   
     }
 
-}

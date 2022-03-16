@@ -11,10 +11,6 @@
     <div class="collapse navbar-collapse" id="mynavbar">
       <ul class="navbar-nav me-auto">
 
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('addproduct')}}">Add Product</a>
-        </li>
-
 
         <li class="nav-item">
           <a class="nav-link" href="{{route('home')}}">Home</a>
@@ -33,8 +29,14 @@
           <a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
         </li> 
 
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('addproduct')}}">Add Product</a>
+        </li>
 
 
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('productlist')}}">Product List</a>
+        </li>
 
      
       </ul>

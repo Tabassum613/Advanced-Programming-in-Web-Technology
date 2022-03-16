@@ -7,17 +7,17 @@
     {{csrf_field()}}
 
      <label for=""> <b>Product Name</b></label>
-     <input type="text" name="name"  class="form-control">
+     <input type="text" name="name" value="{{old('name')}}"  class="form-control">
      <span class="text-danger">@error('name') {{$message}} @enderror</span>
      <br> 
 
      <label for=""> <b>Product Weight</b> </label>
-     <input type="number" name="weight"  class="form-control">
+     <input type="number" name="weight" value="{{old('weight')}}"  class="form-control">
      <span class="text-danger">@error('weight') {{$message}} @enderror</span>
      <br>
 
      <label for=""> <b>Product Price</b> </label>
-     <input type="number" name="price" class="form-control">
+     <input type="number" name="price" value="{{old('price')}}" class="form-control">
      <span class="text-danger">@error('price') {{$message}} @enderror</span>
      <br>
 

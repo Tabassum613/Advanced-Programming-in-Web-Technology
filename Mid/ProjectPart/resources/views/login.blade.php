@@ -3,16 +3,6 @@
 
 <br><br><h1>Sign in</h1><br> 
     <form action="{{route('loginvendor')}}" class="form-group" method="post">
-        
-    <!-- Session -->
-
-    @if(Session::has('Success'))
-    <div class="alert alert-success">{{Session::get('Success')}}</div>
-     @endif
-     
-     @if(Session::has('Fail'))
-    <div class="alert alert-danger">{{Session::get('Fail')}}</div>
-     @endif
 
     {{csrf_field()}}
 

@@ -8,7 +8,8 @@ use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
 {
-    /**
+
+ /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -89,29 +90,37 @@ class ProductController extends Controller
         return view('Product.addproduct');
     }
 
+    public function AddProduct(Request $request){
+      
 
-    public function ProductAdd(Request $request)
-    {
         $request->validate([
-           'name'=> 'required|min:5|max:25|string:A-Z,a-z',
-           'weight'=> 'required|numeric',
-           'price'=> 'required|numeric'
-         ] );
-            $product = new Product();
-            $product->name = $request->name;
-            $product->weight = $request->weight;
-            $product->price = $request->price;
-            $pro=$product->save();
-            
+            'name' => 'required|min:3|max:20',
+            'weight' => 'required',
+            'price' => 'required',
+        ]);
+     
+          $product = new Product();
+          $product->name = $request->name;
+          $product->weight = $request->weight;
+          $product->price = $request->price;   
+          $pro=$product->save();
+  
+          if($pro){
+            return back()->with('Success','You have registered successfully');
+          }
+          else{
+            return back()->with('Fail','Something Wrong');
+          }
 
-            if($pro){
-                return back()->with('Successfully Added');
-              }
-              else{
-                return back()->with('Fail','Please Try Again');
-              }
+        }
+
+          public function ProductList()
+           {
+               $products = Product::all();
+              return view('Product.productList')->with('products',$products);
+              return $products;
+           }
+      
+
 }
-
-
-
-}
+    
