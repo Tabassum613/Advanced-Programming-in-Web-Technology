@@ -18,9 +18,9 @@
             <td>{{$p->weight}}{{" kg"}}</td>
             <td>{{$p->price}}</td>
 
-            <td><a href="#">Edit</a></td>
-            <td><a href="/VendorDelete/{{$p->id}}">Delete</a></td>
-           
+            <td><a href="/productEdit/{{$p->id}}"  class="btn btn-success">Edit</a></td>
+            <td><a href="/ProductDelete/{{$p->id}}"  class="btn btn-danger">Delete</a></td>
+            
         </tr>
         @endforeach
 

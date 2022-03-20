@@ -45,15 +45,15 @@ class VendorAuthController extends Controller
         $vendor->number = $request->number;
         $vendor->address = $request->address;
         $vendor->password = $request->password;    
-        $res=$vendor->save();
+        $vendor->save();
 
-        if($res){
-          return back()->with('Success','You have registered successfully');
-        }
-        else{
-          return back()->with('Fail','Something Wrong');
-        }
-
+        // if($res){
+        //   return back()->with('Success','You have registered successfully');
+        // }
+        // else{
+        //   return back()->with('Fail','Something Wrong');
+        // }
+        return redirect()->route('login');
 
     }
 

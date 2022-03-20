@@ -23,10 +23,8 @@ Route::get('/registration', [VendorAuthController::class, 'Registration'])->name
 Route::get('/login', [VendorAuthController::class, 'Login'])->name('login');
 Route::post('/loginvendor', [VendorAuthController::class, 'LoginVendor'])->name('loginvendor');
 Route::post('/registervendor', [VendorAuthController::class, 'RegisterVendor'])->name('registervendor');
-Route::get('/dashboard', [VendorAuthController::class, 'Dashboard'])->name('dashboard');
 Route::get('/logout', [VendorAuthController::class, 'Logout'])->name('logout');
 Route::get('/VendorDashboard',[VendorAuthController::class,'VendorDashboard'])->name('VendorDashboard')->middleware('ValidVendor');
-Route::get('/VendorDelete/{id}',[ProductController::class, 'VendorDelete']);
 
 
 
@@ -35,8 +33,9 @@ Route::get('/VendorDelete/{id}',[ProductController::class, 'VendorDelete']);
 Route::get('/addproduct', [ProductController::class, 'Pro_Add'])->name('addproduct');
 Route::post('/addproduct', [ProductController::class, 'Addproduct'])->name('addproduct');
 Route::get('/productlist', [ProductController::class, 'Productlist'])->name('productlist');
-
-
+Route::get('/productEdit/{id}', [ProductController::class, 'ProductEdit']);
+Route::post('/productEdit',[ProductController::class,'ProductEditSubmitted'])->name('productEdit');
+Route::get('/ProductDelete/{id}',[ProductController::class, 'ProductDelete']);
 
 
 

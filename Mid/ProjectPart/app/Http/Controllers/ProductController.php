@@ -126,14 +126,40 @@ class ProductController extends Controller
               return $products;
            }
 
-           public function VendorDelete(Request $request)
-    {
-        $customer = Product::where('id', $request->id)->first();
-        $customer->delete();
-        
-        return redirect()->route('productlist');
-    }
+
+
       
+    public function ProductEdit(Request $request)
+        {
+        
+        //    return $id;
+           $product = Product::where('id', $request->id)->first();
+            
+           return view('Product.productEdit')->with('product', $product);
+    
+        }
+
+        
+           public function ProductEditSubmitted(Request $request){
+    
+           $product = Product::where('id', $request->id)->first();
+
+           $product->name = $request->name;
+           $product->weight = $request->weight;
+           $product->price = $request->price;
+           $product->save();
+    
+           return redirect()->route('productlist');
+       }
+
+
+       public function ProductDelete(Request $request)
+       {
+           $product = Product::where('id', $request->id)->first();
+           $product->delete();
+           
+           return redirect()->route('productlist');
+       }
 
 }
     
