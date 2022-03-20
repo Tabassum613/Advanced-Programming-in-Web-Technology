@@ -25,9 +25,7 @@
           <a class="nav-link" href="{{route('help')}}">Help</a>
         </li>
 
-         <li class="nav-item">
-          <a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
-        </li> 
+
 
         <li class="nav-item">
           <a class="nav-link" href="{{route('addproduct')}}">Add Product</a>
@@ -36,6 +34,10 @@
 
         <li class="nav-item">
           <a class="nav-link" href="{{route('productlist')}}">Product List</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('logout')}}">Logout</a>
         </li>
 
      

@@ -66,20 +66,29 @@ class VendorAuthController extends Controller
       ]);
 
 
-      $vendor = VendorAuth::where('email','=',$request->email)->first();
+      $vendor = VendorAuth::where('email',$request->email)
+                            ->where('password',$request->password)
+                            ->first();
+
       if($vendor){
-        if($request->password == $vendor->password){
-          $request->Session()->put('loginId', $vendor->id);
-          return redirect('dashboard');
-        }
-        else{
-          return back()->with('Fail','Password not matches');
-        }
+        $request->session()->put('user',$vendor->name);
+        return redirect()->route('VendorDashboard');
       }
       else{
-        return back()->with('Fail','This email is not registered');
+        return back();
       }
 
+    }
+
+    public function VendorDashboard()
+    {
+        return \view('VendorDashboard');
+    }
+
+    public function logout()
+    {
+        session()->forget('user');
+        return redirect()->route('login');
     }
 
     public function Help(){

@@ -9,6 +9,11 @@ use App\Http\Requests\UpdateProductRequest;
 class ProductController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('ValidVendor');
+    }
+
  /**
      * Display a listing of the resource.
      *
@@ -106,7 +111,7 @@ class ProductController extends Controller
           $pro=$product->save();
   
           if($pro){
-            return back()->with('Success','You have registered successfully');
+            return redirect()->route('productlist');
           }
           else{
             return back()->with('Fail','Something Wrong');
@@ -120,6 +125,14 @@ class ProductController extends Controller
               return view('Product.productList')->with('products',$products);
               return $products;
            }
+
+           public function VendorDelete(Request $request)
+    {
+        $customer = Product::where('id', $request->id)->first();
+        $customer->delete();
+        
+        return redirect()->route('productlist');
+    }
       
 
 }

@@ -19,8 +19,8 @@
             <td>{{$p->price}}</td>
 
             <td><a href="#">Edit</a></td>
-            <td><a href="#">Delete</a></td>
-            <td><a href="#">Product Details</a></td>
+            <td><a href="/VendorDelete/{{$p->id}}">Delete</a></td>
+           
         </tr>
         @endforeach
 

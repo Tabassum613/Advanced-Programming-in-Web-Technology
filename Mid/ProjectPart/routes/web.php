@@ -21,16 +21,18 @@ Route::get('/', [VendorAuthController::class, 'Home'])->name('home');
 Route::get('/help', [VendorAuthController::class, 'Help'])->name('help');
 Route::get('/registration', [VendorAuthController::class, 'Registration'])->name('registration');
 Route::get('/login', [VendorAuthController::class, 'Login'])->name('login');
-Route::post('/registervendor', [VendorAuthController::class, 'RegisterVendor'])->name('registervendor');
 Route::post('/loginvendor', [VendorAuthController::class, 'LoginVendor'])->name('loginvendor');
+Route::post('/registervendor', [VendorAuthController::class, 'RegisterVendor'])->name('registervendor');
 Route::get('/dashboard', [VendorAuthController::class, 'Dashboard'])->name('dashboard');
 Route::get('/logout', [VendorAuthController::class, 'Logout'])->name('logout');
+Route::get('/VendorDashboard',[VendorAuthController::class,'VendorDashboard'])->name('VendorDashboard')->middleware('ValidVendor');
+Route::get('/VendorDelete/{id}',[ProductController::class, 'VendorDelete']);
 
 
 
 //CRUD
 
- Route::get('/addproduct', [ProductController::class, 'Pro_Add'])->name('addproduct');
+Route::get('/addproduct', [ProductController::class, 'Pro_Add'])->name('addproduct');
 Route::post('/addproduct', [ProductController::class, 'Addproduct'])->name('addproduct');
 Route::get('/productlist', [ProductController::class, 'Productlist'])->name('productlist');
 
